@@ -1,8 +1,9 @@
 package main
 
 import (
-	ybalancer "go-load-balancer/ybalancer"
 	"log"
+
+	ybalancer "github.com/yigitaltunay/go-load-balancer/ybalancer"
 )
 
 var (
