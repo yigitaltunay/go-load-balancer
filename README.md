@@ -6,9 +6,16 @@
 **Ybalancer**,  xplains the load balancer business with Golang at a basic level. In some projects, the proxy can meet the connection request. Transmits incoming requests to the appropriate server.
 
 ### Installation
+The first need [Go](https://golang.org/) installed (version 1.15+ is required), then you can use the below Go command to install Ybalancer.
+```sh
+$ go get -u github.com/yigitaltunay/go-load-balancer
+```
+Import it in your code:
+```sh
+import "github.com/yigitaltunay/go-load-balancer
+```
 
-Ybalancer requires [Go](https://nodejs.org/) 1.15.2 version to run.
-Install the dependencies and devDependencies and start the server.
+### Build
 
 ```sh
 $ go build
