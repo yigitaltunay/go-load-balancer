@@ -1,6 +1,6 @@
 # Ybalancer
 ##### Golang Basic TCP Load Balancer
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/yigitaltunay/go-load-balancer)
 
 **Ybalancer**,  explains the load balancer business with Golang at a basic level. In some projects, the proxy can meet the connection request. Transmits incoming requests to the appropriate server.
 
