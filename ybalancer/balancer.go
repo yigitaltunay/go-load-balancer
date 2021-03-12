@@ -1,54 +1,11 @@
-package loadbalancer
+package ybalancer
 
-import (
-	"io"
-	"log"
-	"net"
-)
+var counter int // not working
 
-type Object struct {
-	listenAddress string
-	server        []string
-}
-
-var counter int
-
-func Create(listenAddress string, server []string) *Object {
-	p := Object{listenAddress: listenAddress, server: server}
+// This part is what is required for preparation..
+func Create(listenAddress string, server []string) *LoadObject {
+	p := LoadObject{Addrs: listenAddress, Serv: server}
 	return &p
-}
-
-func (e *Object) Start() {
-
-	listener, err := net.Listen("tcp", e.listenAddress)
-	if err != nil {
-
-	}
-
-	defer listener.Close()
-
-	for {
-		conn, err := listener.Accept()
-		if err != nil {
-			log.Println(err)
-		}
-
-		backendFind := ChooseRandom(e.server)
-		go proxy(backendFind, conn)
-	}
-
-}
-
-func proxy(backend string, c net.Conn) {
-	backendconnection, err := net.Dial("tcp", backend)
-	if err != nil {
-		log.Println(err)
-	}
-
-	// thread
-	go io.Copy(backendconnection, c)
-	go io.Copy(c, backendconnection)
-
 }
 
 func ChooseRandom(serverelement []string) string {
@@ -56,6 +13,6 @@ func ChooseRandom(serverelement []string) string {
 	return host
 }
 
-func (e *Object) GetListenAddress() string {
-	return e.listenAddress
+func (e *LoadObject) GetListenAddress() string {
+	return e.Addrs
 }
