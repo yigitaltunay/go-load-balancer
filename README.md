@@ -24,26 +24,25 @@ $ ./go-load-balancer
 
 ```sh
 package main
+
 import (
-	"log"
 	ybalancer "github.com/yigitaltunay/go-load-balancer/ybalancer"
 )
-var (
-	listenAddress = "localhost:4200"
-	counter       int
-	server        = []string{
-		"localhost:8081",
-		"localhost:8082",
-		"localhost:8083",
-		"localhost:8084",
-		"localhost:8085",
+
+var balancer *ybalancer.LoadObject
+func init() {
+	listenAddress := "localhost:4200" // listen address
+	server        := []string{ // server list
+		"localhost:8080",
 	}
-)
-func main() {
-	log.Println("Started Load Balancer")
-	balancer := ybalancer.Create(listenAddress, server)
-	balancer.Start()
+	balancer = ybalancer.Create(listenAddress, server)
 }
+
+func main() {
+	balancer.BalancerStart() // TCP load balancer
+	balancer.ReverseProxyStart()  // Reverse Proxy 
+}
+
 ```
 
 ![alt text](https://i.ibb.co/mJqDTJP/image.png?raw=true "Ybalancer")
