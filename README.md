@@ -2,7 +2,7 @@
 ##### Golang Basic TCP Load Balancer
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/yigitaltunay/go-load-balancer)
 
-**Ybalancer**,  explains the load balancer  with Golang at a basic level. In some projects, the proxy can meet the connection request. Transmits incoming requests to the appropriate server.
+**Ybalancer**,  explains the load balancer  with Golang at a basic level. In some projects, the proxy can provision the connection request. Transmits incoming requests to the appropriate server.
 
 ### Installation
 The first need [Go](https://golang.org/) installed (version 1.15+ is required), then you can use the below Go command to install Ybalancer.
